@@ -10,6 +10,7 @@ module.exports = {
             Dashboard: 'app/components/Dashboard.jsx',
             Login: 'app/components/Login.jsx',
             Main: 'app/components/Main.jsx',
+            MainPageNav: 'app/components/MainPageNav.jsx',
             MainMenu: 'app/components/MainMenu.jsx',
             Registration: 'app/components/Registration'
         },
