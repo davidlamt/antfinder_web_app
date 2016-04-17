@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <title>Document</title>
 
+    <link rel="stylesheet" href="./styles/foundation.min.css">
     <link rel="stylesheet" href="./styles/style.css"/>
 </head>
 <body>
     <div id="app"></div>
 
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./scripts/foundation.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).foundation();
+        });
+    </script>
     <script src="bundle.js"></script>
 </body>
 </html>
