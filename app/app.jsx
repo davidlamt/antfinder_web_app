@@ -8,6 +8,9 @@ import Main from 'Main';
 import MainMenu from 'MainMenu';
 import Registration from 'Registration';
 
+require('style!css!foundation-sites/dist/foundation.min.css');
+$(document).foundation();
+
 ReactDOM.render(
     <Router history={ hashHistory }>
         <Route path='/' component={ Main }>
