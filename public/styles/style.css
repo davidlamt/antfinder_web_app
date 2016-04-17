@@ -6,6 +6,8 @@
     height: 100vh;
 }
 
-.main-page h1 {
+.top-bar,
+.menu {
+    background: #222222 !important;
     color: #ffffff;
 }

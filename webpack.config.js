@@ -1,10 +1,5 @@
-const webpack = require('webpack');
-
 module.exports = {
     entry: './app/app.jsx',
-    externals: {
-            jquery: 'jQuery'
-    },
     output: {
         path: __dirname,
         filename: './public/bundle.js'
