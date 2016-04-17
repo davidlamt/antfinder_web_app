@@ -5,3 +5,58 @@
     background-attachment: fixed;
     height: 100vh;
 }
+
+.main-page-info {
+    text-align: center;
+}
+
+.main-page-text {
+    color: #ffffff;
+    margin-top: 15%;
+    margin-bottom: 50px;
+}
+
+.btn-login {
+    background-color: #2980b9 !important;
+    color: #ffffff !important;
+    padding: 5px 10px !important;
+    margin: 10px !important;
+}
+
+.btn-login:hover,
+.btn-login:active {
+    background-color: #20638f !important;
+}
+
+.btn-register {
+    background-color: #27ae60 !important;
+    color: #ffffff !important;
+    padding: 20px 40px !important;
+    margin: 20px !important;
+}
+
+.btn-register:hover,
+.btn-register:active {
+    background-color: #1e8449 !important;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    font-size: 100%;
+    background-color: #333333;
+    color: #ffffff;
+    padding: 50px 0;
+}
+
+footer a:link,
+a:visited {
+    text-decoration: none;
+    color: #2980b9;
+}
+
+footer a:hover,
+a:active {
+    text-decoration: underline;
+    color: #20638f;
+}

@@ -16,7 +16,7 @@ class MainPageNav extends Component {
                 </div>
                 <div className='collapse navbar-collapse' id='main-page-menu'>
                     <ul className='nav navbar-nav navbar-right'>
-                        <li><Link to='/login'>Login</Link></li>
+                        <li><Link className='btn-login' to='login'>Login</Link></li>
                     </ul>
                 </div>
             </nav>
