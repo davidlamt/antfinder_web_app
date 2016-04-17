@@ -1,4 +1,4 @@
-.main-page {
+.landing-page {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/background.jpe);
     background-size: cover;
     background-position: center;
@@ -6,14 +6,13 @@
     height: 100vh;
 }
 
-.main-page-info {
+.landing-page-info {
     text-align: center;
 }
 
-.main-page-text {
+.landing-page-text {
     color: #ffffff;
-    margin-top: 15%;
-    margin-bottom: 50px;
+    margin-top: 30vh;
 }
 
 .btn-login {
@@ -21,6 +20,7 @@
     color: #ffffff !important;
     padding: 5px 10px !important;
     margin: 10px !important;
+    border-radius: 5px;
 }
 
 .btn-login:hover,
@@ -32,7 +32,7 @@
     background-color: #27ae60 !important;
     color: #ffffff !important;
     padding: 20px 40px !important;
-    margin: 20px !important;
+    margin-top: 20px;
 }
 
 .btn-register:hover,

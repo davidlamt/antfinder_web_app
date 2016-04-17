@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, IndexLink } from 'react-router';
 
-class MainPageNav extends Component {
+class LandingNav extends Component {
     render() {
         return (
             <nav className='navbar navbar-inverse'>
@@ -24,4 +24,4 @@ class MainPageNav extends Component {
     }
 }
 
-export default MainPageNav;
+export default LandingNav;
