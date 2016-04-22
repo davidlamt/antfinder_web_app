@@ -10,7 +10,7 @@ class Landing extends Component {
             <div>
                 <div className='landing-page'>
                     <LandingNav />
-                    <div className='landing-page-info container vertical-center'>
+                    <div className='landing-page-info container vertical-center-landing'>
                         <h1 className='landing-page-text'>A one stop shop for UCI students.</h1>
                         <Link className='btn btn-success btn-register' to='register'>Register</Link>
                     </div>
