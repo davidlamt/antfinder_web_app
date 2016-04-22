@@ -8,6 +8,7 @@ module.exports = {
         root: __dirname,
         alias: {
             Dashboard: 'app/components/Dashboard.jsx',
+            Footer: 'app/components/Footer.jsx',
             Landing: 'app/components/Landing.jsx',
             LandingNav: 'app/components/LandingNav.jsx',
             Login: 'app/components/Login.jsx',

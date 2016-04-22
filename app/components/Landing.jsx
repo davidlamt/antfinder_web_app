@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, IndexLink } from 'react-router';
 
+import Footer from 'Footer';
 import LandingNav from 'LandingNav';
 
 class Landing extends Component {
@@ -9,16 +10,12 @@ class Landing extends Component {
             <div>
                 <div className='landing-page'>
                     <LandingNav />
-                    <div className='landing-page-info container'>
+                    <div className='landing-page-info container vertical-center'>
                         <h1 className='landing-page-text'>A one stop shop for UCI students.</h1>
                         <Link className='btn btn-success btn-register' to='register'>Register</Link>
                     </div>
                 </div>
-                <footer>
-                    <div className="container">
-                        <p>&copy; 2016 &mdash; A project by <a href="http://davidtranscend.com/" target="_blank">David Tran</a></p>
-                    </div>
-                </footer>
+                <Footer />
             </div>
         );
     }
