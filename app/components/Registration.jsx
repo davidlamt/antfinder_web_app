@@ -28,10 +28,10 @@ class Registration extends Component {
                                             <input type='text' className='form-control' placeholder='Username'/>
                                         </div>
                                         <div className='form-group'>
-                                            <input type='text' className='form-control' placeholder='Password' />
+                                            <input type='password' className='form-control' placeholder='Password' />
                                         </div>
                                         <div className='form-group'>
-                                            <input type='text' className='form-control' placeholder='Confirm Password' />
+                                            <input type='password' className='form-control' placeholder='Confirm Password' />
                                         </div>
                                         <button type='submit' className='btn btn-primary btn-block'>Register</button>
                                     </form>
