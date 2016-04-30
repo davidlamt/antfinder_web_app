@@ -8,8 +8,6 @@ export const createUser = (props) => {
     const { firstName: first_name, lastName: last_name, email, username, password } = props;
     const newUser = { first_name, last_name, email, username, password };
 
-    console.log(newUser);
-
     const request = axios.post(`${ ROOT_URL }/users`, newUser);
 
     return {
