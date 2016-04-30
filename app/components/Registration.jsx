@@ -1,20 +1,37 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 import { Link } from 'react-router';
+import { modal } from 'react-redux-modal';
 
 import { createUser } from '../actions/index';
 
 import Footer from 'Footer';
+import ModalComponent from 'ModalComponent';
 
 class Registration extends Component {
+    constructor(props) {
+        super(props);
+
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
     static contextTypes = {
         router: PropTypes.object
     };
 
     onSubmit(props) {
         this.props.createUser(props).then((result) => {
-            if (result.error) return console.log('failed');
+            if (result.error) return this.addModal();
             this.context.router.push('/app');
+        });
+    }
+
+    addModal() {
+        modal.add(ModalComponent, {
+            title: 'Please Try Again',
+            size: 'medium',
+            closeOnOutsideClick: true,
+            message: 'A user with that username / email already exists.'
         });
     }
 

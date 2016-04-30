@@ -13,6 +13,7 @@ module.exports = {
             LandingNav: 'app/components/LandingNav.jsx',
             Login: 'app/components/Login.jsx',
             Main: 'app/components/Main.jsx',
+            ModalComponent: 'app/components/ModalComponent.jsx',
             Registration: 'app/components/Registration'
         },
         extensions: ['', '.js', '.jsx']
