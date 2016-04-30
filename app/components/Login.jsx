@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 import { Link } from 'react-router';
+import { modal } from 'react-redux-modal';
 
 import { loginUser } from '../actions/index';
 
 import Footer from 'Footer';
+import ModalComponent from 'ModalComponent';
 
 class Login extends Component {
     static contextTypes = {
@@ -12,8 +14,18 @@ class Login extends Component {
     }
 
     onSubmit(props) {
-        this.props.loginUser(props).then((result) => {
-            console.log('logged in');
+        this.props.loginUser(props).then(result => {
+            if (result.error) return this.addModal();
+            this.context.router.push('/app');
+        });
+    }
+
+    addModal() {
+        modal.add(ModalComponent, {
+            title: 'Invalid Credentials',
+            size: 'medium',
+            closeOnOutsideClick: true,
+            message: 'Your username and password combination is invalid.'
         });
     }
 
