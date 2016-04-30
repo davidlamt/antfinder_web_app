@@ -14,7 +14,7 @@ class Registration extends Component {
     onSubmit(props) {
         this.props.createUser(props).then((result) => {
             if (result.error) return console.log('failed');
-            console.log('user created!');
+            this.context.router.push('/app');
         });
     }
 

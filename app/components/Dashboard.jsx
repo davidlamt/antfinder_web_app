@@ -6,8 +6,6 @@ class Dashboard extends Component {
         return (
             <div>
                 <h1>Dashboard Page</h1>
-                <li><Link to='/login'>Login</Link></li>
-                <li><Link to='/registration'>Registration</Link></li>
             </div>
         );
     }

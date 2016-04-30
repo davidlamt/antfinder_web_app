@@ -24,6 +24,9 @@ ReactDOM.render(
                 <IndexRoute component={ Landing } />
                 <Route path='register' component={ Registration } />
                 <Route path='login' component={ Login } />
+                <Route path='app' component={ Dashboard }>
+
+                </Route>
             </Route>
         </Router>
     </Provider>,
