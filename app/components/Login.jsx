@@ -1,10 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { reduxForm } from 'redux-form';
 import { Link } from 'react-router';
+
+import { loginUser } from '../actions/index';
 
 import Footer from 'Footer';
 
 class Login extends Component {
+    static contextTypes = {
+        router: PropTypes.object
+    }
+
+    onSubmit(props) {
+        this.props.loginUser(props).then((result) => {
+            console.log('logged in');
+        });
+    }
+
     render() {
+        const { fields: { username, password }, handleSubmit } = this.props;
+
         return (
             <div>
                 <div className='login-page'>
@@ -14,21 +29,28 @@ class Login extends Component {
                                 <Link className='platform-name' to='/'>AntFinder</Link>
                                 <div className='well'>
                                     <h2 className='login-header'>Sign In</h2>
-                                    <form>
-                                        <div className='form-group'>
+                                    <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
+                                        <div className={ `form-group ${ username.touched && username.invalid ? 'has-danger' : ''}` }>
                                             <div className='input-group'>
                                                 <span className='input-group-addon'>
-                                                    <span className='glyphicon glyphicon-user' aria-hidden='true'/>
+                                                    <span className='glyphicon glyphicon-user' aria-hidden='true' />
                                                 </span>
-                                                <input type='text' className='form-control' placeholder='Username'/>
+                                                <input type='text' className='form-control' placeholder='Username' { ...username } />
+                                            </div>
+                                            <div className='text-help'>
+                                                { username.touched ? username.error: '' }
                                             </div>
                                         </div>
-                                        <div className='form-group'>
+                                        <span className={ username.touched && username.invalid ? 'vertical-spacer' : '' } />
+                                        <div className={ `form-group ${ password.touched && password.invalid ? 'has-danger' : ''}` }>
                                             <div className='input-group'>
                                                 <span className='input-group-addon'>
                                                     <span className='glyphicon glyphicon-lock' aria-hidden='true'/>
                                                 </span>
-                                                <input type='password' className='form-control' placeholder='Password'/>
+                                                <input type='password' className='form-control' placeholder='Password' { ...password } />
+                                            </div>
+                                            <div className='text-help'>
+                                                { password.touched ? password.error: '' }
                                             </div>
                                         </div>
                                         <button type='submit' className='btn btn-primary btn-block'>Log In</button>
@@ -44,4 +66,17 @@ class Login extends Component {
     }
 }
 
-export default Login;
+const validate = values => {
+    const errors = {};
+
+    if (!values.username) errors.username = 'Enter your username';
+    if (!values.password) errors.password = 'Enter your password';
+
+    return errors;
+};
+
+export default reduxForm({
+    form: 'LoginForm',
+    fields: ['username', 'password'],
+    validate
+}, null, { loginUser })(Login);

@@ -73,7 +73,7 @@ class Registration extends Component {
                                             </div>
                                         </div>
                                         <div className={ `form-group ${ password.touched && password.invalid ? 'has-danger' : ''}` }>
-                                        <input type='password' className='form-control' placeholder='Password' { ...password } />
+                                            <input type='password' className='form-control' placeholder='Password' { ...password } />
                                             <div className='text-help'>
                                                 { password.touched ? password.error: '' }
                                             </div>
