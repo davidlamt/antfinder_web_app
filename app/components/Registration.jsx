@@ -28,9 +28,10 @@ class Registration extends Component {
 
     addModal() {
         modal.add(ModalComponent, {
-            title: 'title',
+            title: 'Please Try Again',
             size: 'medium',
             closeOnOutsideClick: true,
+            message: 'A user with that username / email already exists.'
         });
     }
 
@@ -39,7 +40,6 @@ class Registration extends Component {
 
         return (
             <div>
-                <button onClick={ this.addModal.bind(this) }>Add modal</button>
                 <div className='registration-page'>
                     <div className='container vertical-center'>
                         <div className='row'>

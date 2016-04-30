@@ -10,14 +10,11 @@ class ModalComponent extends Component {
     }
 
     render() {
+        const { message } = this.props;
+
         return (
             <div>
-                <p>Yass</p>
-                <button
-                    type='button'
-                    onClick={ this.removeThisModal.bind(this) }>
-                    x
-                </button>
+                <p>{ message }</p>
             </div>
         );
     }
