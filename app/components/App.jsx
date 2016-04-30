@@ -6,6 +6,12 @@ import { Link } from 'react-router';
 import { authenticateUser } from '../actions/index';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = { loaded: true };
+    }
+
     static contextTypes = {
         router: PropTypes.object
     };
@@ -17,6 +23,17 @@ class App extends Component {
     }
 
     render() {
+        const { loaded } = this.state;
+
+        if (!loaded) return (
+            <div className='loading-spinner'>
+                <div className='text-center vertical-center'>
+                    <i className="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
+                    <span className="sr-only">Loading...</span>
+                </div>
+            </div>
+        );
+
         return (
             <div className="container-fluid app-nav">
                 <div className="row">
