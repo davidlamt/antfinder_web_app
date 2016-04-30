@@ -16,10 +16,20 @@ class Login extends Component {
                                     <h2 className='login-header'>Sign In</h2>
                                     <form>
                                         <div className='form-group'>
-                                            <input type='text' className='form-control' placeholder='Username'/>
+                                            <div className='input-group'>
+                                                <span className='input-group-addon'>
+                                                    <span className='glyphicon glyphicon-user' aria-hidden='true'/>
+                                                </span>
+                                                <input type='text' className='form-control' placeholder='Username'/>
+                                            </div>
                                         </div>
                                         <div className='form-group'>
-                                            <input type='password' className='form-control' placeholder='Password'/>
+                                            <div className='input-group'>
+                                                <span className='input-group-addon'>
+                                                    <span className='glyphicon glyphicon-lock' aria-hidden='true'/>
+                                                </span>
+                                                <input type='password' className='form-control' placeholder='Password'/>
+                                            </div>
                                         </div>
                                         <button type='submit' className='btn btn-primary btn-block'>Log In</button>
                                     </form>
