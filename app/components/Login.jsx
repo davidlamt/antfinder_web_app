@@ -15,6 +15,7 @@ class Login extends Component {
 
     onSubmit(props) {
         this.props.loginUser(props).then(result => {
+            console.log(result);
             if (result.error) return this.addModal();
             this.context.router.push('/app');
         });
