@@ -21,16 +21,15 @@ body {
 /* NAVBAR */
 /* ---------------------------------------- */
 
-.navbar,
-.navbar-inverse,
-.navbar-toggle,
-.navbar-toggle:hover,
-.navbar-toggle:active {
+.landing-page .navbar-inverse,
+.landing-page .navbar-toggle,
+.landing-page .navbar-toggle:hover,
+.landing-page .navbar-toggle:active {
     background-color: transparent !important;
     border-color: transparent !important;
 }
 
-.navbar-brand {
+.landing-page .navbar-brand {
     color: #ffffff !important;
     transition: color 0.5s;
     font-size: 160%;
@@ -38,8 +37,8 @@ body {
     margin: 20px;
 }
 
-.navbar-brand:hover,
-.navbar-brand:active {
+.landing-page .navbar-brand:hover,
+.landing-page .navbar-brand:active {
     color: #27ae60 !important;
 }
 
@@ -129,6 +128,37 @@ body {
 
 .login-page .well {
     margin-top: 20px;
+}
+
+/* ---------------------------------------- */
+/* NAVBAR APP */
+/* ---------------------------------------- */
+
+.app-nav .navbar-brand {
+    color: #ffffff !important;
+    transition: color 0.5s;
+    font-size: 160%;
+    font-weight: 500;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.app-nav .navbar-brand:hover,
+.app-nav .navbar-brand:active {
+    color: #27ae60 !important;
+}
+
+#app > div > div:nth-child(1) > div > div > div.col-sm-3.col-lg-2 > nav > div.navbar-header > button {
+    margin-top: 25px;
+}
+
+.app-nav li {
+    color: #ffffff !important;
+}
+
+.app-nav .active {
+    background-color: #27ae60;
+    color: #ffffff !important;
 }
 
 /* ---------------------------------------- */
