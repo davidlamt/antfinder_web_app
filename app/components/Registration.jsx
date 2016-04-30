@@ -1,20 +1,36 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 import { Link } from 'react-router';
+import { modal } from 'react-redux-modal';
 
 import { createUser } from '../actions/index';
 
 import Footer from 'Footer';
+import ModalComponent from 'ModalComponent';
 
 class Registration extends Component {
+    constructor(props) {
+        super(props);
+
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
     static contextTypes = {
         router: PropTypes.object
     };
 
     onSubmit(props) {
         this.props.createUser(props).then((result) => {
-            if (result.error) return console.log('failed');
+            if (result.error) return this.addModal();
             this.context.router.push('/app');
+        });
+    }
+
+    addModal() {
+        modal.add(ModalComponent, {
+            title: 'title',
+            size: 'medium',
+            closeOnOutsideClick: true,
         });
     }
 
@@ -23,6 +39,7 @@ class Registration extends Component {
 
         return (
             <div>
+                <button onClick={ this.addModal.bind(this) }>Add modal</button>
                 <div className='registration-page'>
                     <div className='container vertical-center'>
                         <div className='row'>
