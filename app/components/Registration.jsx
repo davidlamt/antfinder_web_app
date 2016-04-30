@@ -1,10 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { reduxForm } from 'redux-form';
 import { Link } from 'react-router';
+
+import { createUser } from '../actions/index';
 
 import Footer from 'Footer';
 
 class Registration extends Component {
+    static contextTypes = {
+        router: PropTypes.object
+    };
+
+    onSubmit(props) {
+        this.props.createUser(props).then((result) => {
+            if (result.error) return console.log('failed');
+            this.context.router.push('/app');
+        });
+    }
+
     render() {
+        const { fields: { firstName, lastName, email, username, password, confirmPassword }, handleSubmit } = this.props;
+
         return (
             <div>
                 <div className='registration-page'>
@@ -14,24 +30,42 @@ class Registration extends Component {
                                 <Link className='platform-name' to='/'>AntFinder</Link>
                                 <div className='well'>
                                     <h2 className='register-header'>Sign Up</h2>
-                                    <form>
-                                        <div className='form-group'>
-                                            <input type='text' className='form-control' placeholder='First Name'/>
+                                    <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
+                                        <div className={ `form-group ${ firstName.touched && firstName.invalid ? 'has-danger' : ''}` }>
+                                            <input type='text' className='form-control' placeholder='First Name' { ...firstName } />
+                                            <div className='text-help'>
+                                                { firstName.touched ? firstName.error: '' }
+                                            </div>
                                         </div>
-                                        <div className='form-group'>
-                                            <input type='text' className='form-control' placeholder='Last Name'/>
+                                        <div className={ `form-group ${ lastName.touched && lastName.invalid ? 'has-danger' : ''}` }>
+                                            <input type='text' className='form-control' placeholder='Last Name' { ...lastName } />
+                                            <div className='text-help'>
+                                                { lastName.touched ? lastName.error: '' }
+                                            </div>
                                         </div>
-                                        <div className='form-group'>
-                                            <input type='text' className='form-control' placeholder='Email'/>
+                                        <div className={ `form-group ${ email.touched && email.invalid ? 'has-danger' : ''}` }>
+                                            <input type='text' className='form-control' placeholder='Email' { ...email } />
+                                                <div className='text-help'>
+                                                    { email.touched ? email.error: '' }
+                                                </div>
                                         </div>
-                                        <div className='form-group'>
-                                            <input type='text' className='form-control' placeholder='Username'/>
+                                        <div className={ `form-group ${ username.touched && username.invalid ? 'has-danger' : ''}` }>
+                                            <input type='text' className='form-control' placeholder='Username' { ...username } />
+                                            <div className='text-help'>
+                                                { username.touched ? username.error: '' }
+                                            </div>
                                         </div>
-                                        <div className='form-group'>
-                                            <input type='password' className='form-control' placeholder='Password' />
+                                        <div className={ `form-group ${ password.touched && password.invalid ? 'has-danger' : ''}` }>
+                                        <input type='password' className='form-control' placeholder='Password' { ...password } />
+                                            <div className='text-help'>
+                                                { password.touched ? password.error: '' }
+                                            </div>
                                         </div>
-                                        <div className='form-group'>
-                                            <input type='password' className='form-control' placeholder='Confirm Password' />
+                                        <div className={ `form-group ${ confirmPassword.touched && confirmPassword.invalid ? 'has-danger' : ''}` }>
+                                            <input type='password' className='form-control' placeholder='Confirm Password' { ...confirmPassword } />
+                                            <div className='text-help'>
+                                                { confirmPassword.touched ? confirmPassword.error: '' }
+                                            </div>
                                         </div>
                                         <button type='submit' className='btn btn-primary btn-block'>Register</button>
                                     </form>
@@ -46,4 +80,22 @@ class Registration extends Component {
     }
 }
 
-export default Registration;
+const validate = values => {
+    const errors = {};
+
+    if (!values.firstName) errors.firstName = 'Enter your first name';
+    if (!values.lastName) errors.lastName = 'Enter your last name';
+    if (!values.email) errors.email = 'Enter your email address';
+    if (!values.username) errors.username = 'Enter your username';
+    if (!values.password) errors.password = 'Enter a password';
+    if (!values.confirmPassword) errors.confirmPassword = 'Confirm your password';
+    else if (values.password !== values.confirmPassword) errors.confirmPassword = 'Your passwords do not match';
+
+    return errors;
+};
+
+export default reduxForm({
+    form: 'RegistrationForm',
+    fields: ['firstName', 'lastName', 'email', 'username', 'password', 'confirmPassword'],
+    validate
+}, null, { createUser })(Registration);

@@ -159,6 +159,11 @@ a:active {
 /* REUSABLE COMPONENTS */
 /* ---------------------------------------- */
 
+.text-help {
+    float: left;
+    font-size: 70%;
+}
+
 .vertical-center-landing {
     position: relative;
     top: 40%;
