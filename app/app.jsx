@@ -11,7 +11,7 @@ import Main from 'Main';
 import Landing from 'Landing';
 import Registration from 'Registration';
 
-import reducers from './reducers/index.js';
+import reducers from './reducers/index';
 
 const createStoreWithMiddleware = applyMiddleware(
     promise
