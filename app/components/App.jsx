@@ -16,8 +16,16 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                { this.props.children }
+            <div className='container-fluid'>
+                <div className='row'>
+                    <div className='col-sm-3 col-lg-2'>
+                        <nav className='navbar navbar-default navbar-fixed-side'>
+                        </nav>
+                    </div>
+                    <div className='col-sm-9 col-lg-10'>
+                        { this.props.children }
+                    </div>
+                </div>
             </div>
         );
     }
