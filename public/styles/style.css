@@ -162,6 +162,21 @@ body {
 }
 
 /* ---------------------------------------- */
+/* APP TOP MENU */
+/* ---------------------------------------- */
+
+.app-top-menu {
+    background-color: #ecf0f1;
+    height: 50px;
+    text-align: right;
+}
+
+.app-top-menu .top-greeting {
+    padding: 10px 15px;
+    font-weight: 500;
+}
+
+/* ---------------------------------------- */
 /* FOOTER */
 /* ---------------------------------------- */
 
@@ -223,4 +238,12 @@ a:active {
 .platform-name:hover,
 .platform-name:active {
     color: #1e8449 !important;
+}
+
+.remove-padding {
+    padding: 0 !important;
+}
+
+.app-contents {
+    padding: 15px;
 }

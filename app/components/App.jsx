@@ -29,7 +29,7 @@ class App extends Component {
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
-                            <div className='navbar-brand'>AntFinder</div>
+                            <Link to='app' className='navbar-brand'>AntFinder</Link>
                         </div>
                         <div className='collapse navbar-collapse' id='app-page-menu'>
                             <ul className='nav navbar-nav'>
@@ -41,8 +41,15 @@ class App extends Component {
                         </div>
                     </nav>
                 </div>
-                <div className="col-sm-9 col-lg-10">
-                    { this.props.children }
+                <div className="col-sm-9 col-lg-10 remove-padding">
+                    <div className='app-top-menu'>
+                        <p className='top-greeting'>
+                            Hello, David!
+                        </p>
+                    </div>
+                    <div className='app-contents'>
+                        { this.props.children }
+                    </div>
                 </div>
             </div>
             </div>
