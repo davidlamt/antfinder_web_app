@@ -1,23 +1,39 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { modal } from 'react-redux-modal';
 
 import { authenticateUser, getUserInfo } from '../actions/index';
+import ModalComponent from 'ModalComponent';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = { loaded: false, firstName: '' };
-    }
-
     static contextTypes = {
         router: PropTypes.object
     };
 
+    constructor(props) {
+        super(props);
+
+        this.state = { loaded: false, firstName: '' };
+
+        this.addModal = this.addModal.bind(this);
+    }
+
+    addModal(event) {
+        event.preventDefault();
+
+        modal.add(ModalComponent, {
+            title: 'Log Out?',
+            size: 'small',
+            closeOnOutsideClick: true,
+            modalType: 'logout',
+            context: this.context.router
+        });
+    }
+
     componentWillMount() {
         this.props.authenticateUser().then(response => {
-            if (response.error) this.context.router.push('/');
+            if (response.error) return this.context.router.push('/');
         });
     }
 
@@ -61,7 +77,7 @@ class App extends Component {
                                 <li><Link activeClassName='active' to='app'>Dashboard</Link></li>
                                 <li><Link activeClassName='active' to='listings'>Listings</Link></li>
                                 <li><Link activeClassName='active' to='account'>Account</Link></li>
-                                <li><Link activeClassName='active' to='logout'>Logout</Link></li>
+                                <li><a onClick={ this.addModal }href='#'>Logout</a></li>
                             </ul>
                         </div>
                     </nav>
