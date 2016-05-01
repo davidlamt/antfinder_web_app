@@ -2,14 +2,13 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-
-import { authenticateUser } from '../actions/index';
+import { authenticateUser, getUserInfo } from '../actions/index';
 
 class App extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { loaded: true };
+        this.state = { loaded: false, firstName: '' };
     }
 
     static contextTypes = {
@@ -22,8 +21,17 @@ class App extends Component {
         });
     }
 
+    componentDidMount() {
+        this.props.getUserInfo().then(response => {
+            this.setState({
+                loaded: true,
+                firstName: response.payload.data.firstName
+            });
+        });
+    }
+
     render() {
-        const { loaded } = this.state;
+        const { loaded, firstName } = this.state;
 
         if (!loaded) return (
             <div className='loading-spinner'>
@@ -61,7 +69,7 @@ class App extends Component {
                 <div className="col-sm-9 col-lg-10 remove-padding">
                     <div className='app-top-menu'>
                         <p className='top-greeting'>
-                            Hello, David!
+                            Hello, { firstName }!
                         </p>
                     </div>
                     <div className='app-contents'>
@@ -74,4 +82,4 @@ class App extends Component {
     }
 }
 
-export default connect(null, { authenticateUser })(App);
+export default connect(null, { authenticateUser, getUserInfo })(App);

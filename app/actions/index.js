@@ -7,6 +7,7 @@ const config = {
 };
 
 export const CREATE_USER = 'CREATE_USER';
+export const GET_USER_INFO = 'GET_USER_INFO';
 export const LOGIN_USER = 'LOGIN_USER';
 export const AUTHENTICATE_USER = 'AUTHENTICATE_USER';
 
@@ -39,6 +40,15 @@ export const authenticateUser = () => {
 
     return {
         type: AUTHENTICATE_USER,
+        payload: request
+    };
+};
+
+export const getUserInfo = () => {
+    const request = axios.get(`${ ROOT_URL }/user`, config);
+
+    return {
+        type: GET_USER_INFO,
         payload: request
     };
 };
