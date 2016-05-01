@@ -7,6 +7,15 @@ module.exports = {
     resolve: {
         root: __dirname,
         alias: {
+            App: 'app/components/App.jsx',
+            Dashboard: 'app/components/Dashboard.jsx',
+            Footer: 'app/components/Footer.jsx',
+            Landing: 'app/components/Landing.jsx',
+            LandingNav: 'app/components/LandingNav.jsx',
+            Login: 'app/components/Login.jsx',
+            Main: 'app/components/Main.jsx',
+            ModalComponent: 'app/components/ModalComponent.jsx',
+            Registration: 'app/components/Registration'
         },
         extensions: ['', '.js', '.jsx']
     },
@@ -21,5 +30,6 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/
             }
         ]
-    }
+    },
+    devtool: 'cheap-module-eval-source-map'
 };

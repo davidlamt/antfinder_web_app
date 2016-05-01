@@ -2,7 +2,7 @@
 The AntFinder web application. Uses the AntFinder API.
 
 ## Version
-**0.1**
+**0.2**
 
 ## Demo
 Working on building the application.
