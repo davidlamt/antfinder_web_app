@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import promise from 'redux-promise';
 
+import App from 'App';
 import Dashboard from 'Dashboard';
 import Login from 'Login';
 import Main from 'Main';
@@ -26,8 +27,8 @@ ReactDOM.render(
                     <IndexRoute component={ Landing } />
                     <Route path='register' component={ Registration } />
                     <Route path='login' component={ Login } />
-                    <Route path='app' component={ Dashboard }>
-
+                    <Route path='app' component={ App }>
+                        <IndexRoute component={ Dashboard } />
                     </Route>
                 </Route>
             </Router>
