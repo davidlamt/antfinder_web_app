@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const ROOT_URL = (process.env.NODE_ENV === 'production') ? 'https://antfinder-api.herokuapp.com' : 'http://localhost:3000';
 // const ROOT_URL = 'https://antfinder-api.herokuapp.com';
 // const ROOL_URL = 'http://localhost:3000'; // For local testing
