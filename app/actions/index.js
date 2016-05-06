@@ -13,6 +13,7 @@ export const GET_USER_INFO = 'GET_USER_INFO';
 export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const AUTHENTICATE_USER = 'AUTHENTICATE_USER';
+export const CHANGE_USER_PASSWORD = 'CHANGE_USER_PASSWORD';
 
 export const createUser = props => {
     const { firstName: first_name, lastName: last_name, email, username, password } = props;
@@ -61,6 +62,15 @@ export const getUserInfo = () => {
 
     return {
         type: GET_USER_INFO,
+        payload: request
+    };
+};
+
+export const changeUserPassword = (oldPassword, password) => {
+    const request = axios.put(`${ ROOT_URL }/users`, { oldPassword, password }, config);
+
+    return {
+        type: CHANGE_USER_PASSWORD,
         payload: request
     };
 };
