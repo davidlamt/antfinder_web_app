@@ -22,7 +22,7 @@ class Registration extends Component {
     onSubmit(props) {
         this.props.createUser(props).then((result) => {
             if (result.error) return this.addModal();
-            this.context.router.push('/app');
+            this.context.router.push('/app/dashboard');
         });
     }
 
