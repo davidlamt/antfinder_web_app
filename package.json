@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "dev": "npm run build && nodemon server.js",
-    "deploy": "git add . && git commit -am \"Prepare for heroku deployment\" && git push heroku prepare-for-heroku-deployment:master -f",
+    "deploy": "webpack && git add . && git commit -am \"Prepare for heroku deployment\" && git push heroku deployment:master -f",
     "start": "node server.js"
   },
   "author": "David Tran",
