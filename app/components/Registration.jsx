@@ -20,18 +20,20 @@ class Registration extends Component {
     };
 
     onSubmit(props) {
-        this.props.createUser(props).then((result) => {
-            if (result.error) return this.addModal();
+        this.props.createUser(props).then(res => {
+            if (res.error) return this.addModal('A user with that username / email already exists.');
             this.context.router.push('/app/dashboard');
+        }, err => {
+            return this.addModal('An error occured.');
         });
     }
 
-    addModal() {
+    addModal(message) {
         modal.add(ModalComponent, {
             title: 'Please Try Again',
             size: 'medium',
             closeOnOutsideClick: true,
-            message: 'A user with that username / email already exists.'
+            message
         });
     }
 

@@ -14,8 +14,6 @@ class App extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { loaded: false, firstName: '' };
-
         this.addModal = this.addModal.bind(this);
     }
 
@@ -33,23 +31,13 @@ class App extends Component {
 
     componentWillMount() {
         this.props.authenticateUser().then(response => {
+            this.props.getUserInfo();
             if (response.error) return this.context.router.push('/');
         });
     }
 
-    componentDidMount() {
-        this.props.getUserInfo().then(response => {
-            this.setState({
-                loaded: true,
-                firstName: response.payload.data.firstName
-            });
-        });
-    }
-
     render() {
-        const { loaded, firstName } = this.state;
-
-        if (!loaded) return (
+        if (!this.props.user) return (
             <div className='loading-spinner'>
                 <div className='text-center vertical-center'>
                     <i className="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
@@ -57,6 +45,8 @@ class App extends Component {
                 </div>
             </div>
         );
+
+        const { firstName } = this.props.user;
 
         return (
             <div className="container-fluid app-nav">
@@ -98,4 +88,8 @@ class App extends Component {
     }
 }
 
-export default connect(null, { authenticateUser, getUserInfo })(App);
+const mapStateToProps = state => {
+    return { user: state.users.info };
+}
+
+export default connect(mapStateToProps, { authenticateUser, getUserInfo })(App);
