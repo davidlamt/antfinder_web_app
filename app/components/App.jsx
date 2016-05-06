@@ -14,8 +14,6 @@ class App extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { loaded: false, firstName: '' };
-
         this.addModal = this.addModal.bind(this);
     }
 
@@ -33,23 +31,13 @@ class App extends Component {
 
     componentWillMount() {
         this.props.authenticateUser().then(response => {
+            this.props.getUserInfo();
             if (response.error) return this.context.router.push('/');
         });
     }
 
-    componentDidMount() {
-        this.props.getUserInfo().then(response => {
-            this.setState({
-                loaded: true,
-                firstName: response.payload.data.firstName
-            });
-        });
-    }
-
     render() {
-        const { loaded, firstName } = this.state;
-
-        if (!loaded) return (
+        if (!this.props.user) return (
             <div className='loading-spinner'>
                 <div className='text-center vertical-center'>
                     <i className="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
@@ -57,6 +45,8 @@ class App extends Component {
                 </div>
             </div>
         );
+
+        const { firstName } = this.props.user;
 
         return (
             <div className="container-fluid app-nav">
@@ -70,13 +60,13 @@ class App extends Component {
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
-                            <Link to='app' className='navbar-brand'>AntFinder</Link>
+                            <Link to='app/dashboard' className='navbar-brand'>AntFinder</Link>
                         </div>
                         <div className='collapse navbar-collapse' id='app-page-menu'>
                             <ul className='nav navbar-nav'>
-                                <li><Link activeClassName='active' to='app'>Dashboard</Link></li>
-                                <li><Link activeClassName='active' to='listings'>Listings</Link></li>
-                                <li><Link activeClassName='active' to='account'>Account</Link></li>
+                                <li><Link activeClassName='active' to='app/dashboard'>Dashboard</Link></li>
+                                <li><Link activeClassName='active' to='app/listings'>Listings</Link></li>
+                                <li><Link activeClassName='active' to='app/account'>Account</Link></li>
                                 <li><a onClick={ this.addModal }href='#'>Logout</a></li>
                             </ul>
                         </div>
@@ -98,4 +88,8 @@ class App extends Component {
     }
 }
 
-export default connect(null, { authenticateUser, getUserInfo })(App);
+const mapStateToProps = state => {
+    return { user: state.users.info };
+}
+
+export default connect(mapStateToProps, { authenticateUser, getUserInfo })(App);

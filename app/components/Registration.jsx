@@ -20,18 +20,20 @@ class Registration extends Component {
     };
 
     onSubmit(props) {
-        this.props.createUser(props).then((result) => {
-            if (result.error) return this.addModal();
-            this.context.router.push('/app');
+        this.props.createUser(props).then(res => {
+            if (res.error) return this.addModal('A user with that username / email already exists.');
+            this.context.router.push('/app/dashboard');
+        }, err => {
+            return this.addModal('An error occured.');
         });
     }
 
-    addModal() {
+    addModal(message) {
         modal.add(ModalComponent, {
             title: 'Please Try Again',
             size: 'medium',
             closeOnOutsideClick: true,
-            message: 'A user with that username / email already exists.'
+            message
         });
     }
 
@@ -49,37 +51,60 @@ class Registration extends Component {
                                     <h2 className='register-header'>Sign Up</h2>
                                     <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
                                         <div className={ `form-group ${ firstName.touched && firstName.invalid ? 'has-danger' : ''}` }>
-                                            <input type='text' className='form-control' placeholder='First Name' { ...firstName } />
+                                            <div className='input-group'>
+                                                <span className="input-group-addon">First Name</span>
+                                                <input type='text' className='form-control' { ...firstName } />
+                                            </div>
                                             <div className='text-help'>
                                                 { firstName.touched ? firstName.error: '' }
                                             </div>
                                         </div>
+                                        <span className={ firstName.touched && firstName.invalid ? 'vertical-spacer' : '' } />
                                         <div className={ `form-group ${ lastName.touched && lastName.invalid ? 'has-danger' : ''}` }>
-                                            <input type='text' className='form-control' placeholder='Last Name' { ...lastName } />
+                                            <div className='input-group'>
+                                                <span className="input-group-addon">Last Name</span>
+                                                <input type='text' className='form-control' { ...lastName } />
+                                            </div>
                                             <div className='text-help'>
                                                 { lastName.touched ? lastName.error: '' }
                                             </div>
                                         </div>
+                                        <span className={ lastName.touched && lastName.invalid ? 'vertical-spacer' : '' } />
                                         <div className={ `form-group ${ email.touched && email.invalid ? 'has-danger' : ''}` }>
-                                            <input type='text' className='form-control' placeholder='Email' { ...email } />
-                                                <div className='text-help'>
-                                                    { email.touched ? email.error: '' }
-                                                </div>
+                                            <div className='input-group'>
+                                                <span className="input-group-addon">Email</span>
+                                                <input type='text' className='form-control' { ...email } />
+                                            </div>
+                                            <div className='text-help'>
+                                                { email.touched ? email.error: '' }
+                                            </div>
                                         </div>
+                                        <span className={ email.touched && email.invalid ? 'vertical-spacer' : '' } />
                                         <div className={ `form-group ${ username.touched && username.invalid ? 'has-danger' : ''}` }>
-                                            <input type='text' className='form-control' placeholder='Username' { ...username } />
+                                            <div className='input-group'>
+                                                <span className="input-group-addon">Username</span>
+                                                <input type='text' className='form-control' { ...username } />
+                                            </div>
                                             <div className='text-help'>
                                                 { username.touched ? username.error: '' }
                                             </div>
                                         </div>
+                                        <span className={ username.touched &&  username.invalid ? 'vertical-spacer' : '' } />
                                         <div className={ `form-group ${ password.touched && password.invalid ? 'has-danger' : ''}` }>
-                                            <input type='password' className='form-control' placeholder='Password' { ...password } />
+                                            <div className='input-group'>
+                                                <span className="input-group-addon">Password</span>
+                                                <input type='password' className='form-control' { ...password } />
+                                            </div>
                                             <div className='text-help'>
                                                 { password.touched ? password.error: '' }
                                             </div>
                                         </div>
+                                        <span className={ password.touched && password.invalid ? 'vertical-spacer' : '' } />
                                         <div className={ `form-group ${ confirmPassword.touched && confirmPassword.invalid ? 'has-danger' : ''}` }>
-                                            <input type='password' className='form-control' placeholder='Confirm Password' { ...confirmPassword } />
+                                            <div className='input-group'>
+                                                <span className="input-group-addon">Confirm Password</span>
+                                                <input type='password' className='form-control' { ...confirmPassword } />
+                                            </div>
                                             <div className='text-help'>
                                                 { confirmPassword.touched ? confirmPassword.error: '' }
                                             </div>

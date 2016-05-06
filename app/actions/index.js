@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const ROOT_URL = 'https://antfinder-api.herokuapp.com';
+const ROOT_URL = (process.env.NODE_ENV === 'production') ? 'https://antfinder-api.herokuapp.com' : 'http://localhost:3000';
+// const ROOT_URL = 'https://antfinder-api.herokuapp.com';
 // const ROOL_URL = 'http://localhost:3000'; // For local testing
 
 const config = {
@@ -12,6 +13,7 @@ export const GET_USER_INFO = 'GET_USER_INFO';
 export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const AUTHENTICATE_USER = 'AUTHENTICATE_USER';
+export const CHANGE_USER_PASSWORD = 'CHANGE_USER_PASSWORD';
 
 export const createUser = props => {
     const { firstName: first_name, lastName: last_name, email, username, password } = props;
@@ -60,6 +62,15 @@ export const getUserInfo = () => {
 
     return {
         type: GET_USER_INFO,
+        payload: request
+    };
+};
+
+export const changeUserPassword = (oldPassword, password) => {
+    const request = axios.put(`${ ROOT_URL }/users`, { oldPassword, password }, config);
+
+    return {
+        type: CHANGE_USER_PASSWORD,
         payload: request
     };
 };

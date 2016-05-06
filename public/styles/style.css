@@ -42,7 +42,7 @@ body {
     color: #27ae60 !important;
 }
 
-#app > div > div > div > nav > div.navbar-header > button {
+#app > div > div:nth-child(1) > div > div > nav > div.navbar-header > button {
     margin: 25px;
 }
 
@@ -260,4 +260,8 @@ a:active {
     position: absolute;
     width: 100%;
     height: 100%;
+}
+
+.menu-page-heading {
+    margin: 5px;
 }

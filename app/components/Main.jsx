@@ -10,7 +10,7 @@ class Main extends Component {
 
     componentWillMount() {
         this.props.authenticateUser().then(response => {
-            if (!response.error) this.context.router.push('/app');
+            if (!response.error) this.context.router.push('/app/dashboard');
         });
     }
 

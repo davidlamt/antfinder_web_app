@@ -7,11 +7,13 @@ module.exports = {
     resolve: {
         root: __dirname,
         alias: {
+            Account: 'app/components/Account.jsx',
             App: 'app/components/App.jsx',
             Dashboard: 'app/components/Dashboard.jsx',
             Footer: 'app/components/Footer.jsx',
             Landing: 'app/components/Landing.jsx',
             LandingNav: 'app/components/LandingNav.jsx',
+            Listings: 'app/components/Listings.jsx',
             Login: 'app/components/Login.jsx',
             Main: 'app/components/Main.jsx',
             ModalComponent: 'app/components/ModalComponent.jsx',
