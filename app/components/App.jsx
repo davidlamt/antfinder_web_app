@@ -70,13 +70,13 @@ class App extends Component {
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
-                            <Link to='app' className='navbar-brand'>AntFinder</Link>
+                            <Link to='app/dashboard' className='navbar-brand'>AntFinder</Link>
                         </div>
                         <div className='collapse navbar-collapse' id='app-page-menu'>
                             <ul className='nav navbar-nav'>
-                                <li><Link activeClassName='active' to='app'>Dashboard</Link></li>
-                                <li><Link activeClassName='active' to='listings'>Listings</Link></li>
-                                <li><Link activeClassName='active' to='account'>Account</Link></li>
+                                <li><Link activeClassName='active' to='app/dashboard'>Dashboard</Link></li>
+                                <li><Link activeClassName='active' to='app/listings'>Listings</Link></li>
+                                <li><Link activeClassName='active' to='app/account'>Account</Link></li>
                                 <li><a onClick={ this.addModal }href='#'>Logout</a></li>
                             </ul>
                         </div>
