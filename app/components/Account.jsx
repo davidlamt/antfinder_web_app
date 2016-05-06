@@ -55,10 +55,21 @@ class Account extends Component {
 
                 <h2>Change Password</h2>
                 <div className='row'>
-                    <div className='form-group col-md-12'>
-                        <label>Creation</label>
-                        <p>Your account was created { determineAgeOfAccount(createdAt) } days ago!</p>
-                    </div>
+                    <form className='col-md-4'>
+                        <div className='form-group'>
+                            <label>Old Password</label>
+                            <input type='password' className='form-control' />
+                        </div>
+                        <div className='form-group'>
+                            <label>New Password</label>
+                            <input type='password' className='form-control' />
+                        </div>
+                        <div className='form-group'>
+                            <label>Confirm New Password</label>
+                            <input type='password' className='form-control' />
+                        </div>
+                        <button type='submit' className='btn btn-primary'>Change Password</button>
+                    </form>
                 </div>
             </div>
         );
