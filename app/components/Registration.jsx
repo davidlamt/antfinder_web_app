@@ -22,7 +22,7 @@ class Registration extends Component {
     onSubmit(props) {
         this.props.createUser(props).then(res => {
             if (res.error) return this.addModal('A user with that username / email already exists.');
-            this.context.router.push('/app/dashboard');
+            this.context.router.push('/login');
         }, err => {
             return this.addModal('An error occured.');
         });
