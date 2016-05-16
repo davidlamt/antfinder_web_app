@@ -8,6 +8,7 @@ const config = {
     withCredentials: true
 };
 
+export const ADD_LISTING = 'ADD_LISTING';
 export const CREATE_USER = 'CREATE_USER';
 export const GET_USER_INFO = 'GET_USER_INFO';
 export const LOGIN_USER = 'LOGIN_USER';
@@ -71,6 +72,15 @@ export const changeUserPassword = (oldPassword, password) => {
 
     return {
         type: CHANGE_USER_PASSWORD,
+        payload: request
+    };
+};
+
+export const addListing = newListing => {
+    const request = axios.post(`${ ROOT_URL }/listings`, newListing, config);
+
+    return {
+        type: ADD_LISTING,
         payload: request
     };
 };
