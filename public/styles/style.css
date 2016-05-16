@@ -177,8 +177,10 @@ body {
 }
 
 .app-top-menu .add-icon {
-    margin: 14px 20px 0 0;
+    margin: 15px 20px 0 0;
     cursor: pointer;
+    color: #27ae60;
+    text-decoration: none;
 }
 
 /* ---------------------------------------- */

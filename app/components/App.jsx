@@ -77,7 +77,7 @@ class App extends Component {
                         <p className='top-greeting pull-right'>
                             Hello, { firstName }!
                         </p>
-                        <i className="fa fa-plus pull-right add-icon" title='Add listing' aria-hidden="true"></i>
+                        <Link to='app/add_listing' className="fa fa-plus pull-right add-icon" title='Add listing'></Link>
                     </div>
                     <div className='app-contents'>
                         { this.props.children }
