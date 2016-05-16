@@ -74,9 +74,10 @@ class App extends Component {
                 </div>
                 <div className="col-sm-9 col-lg-10 remove-padding">
                     <div className='app-top-menu'>
-                        <p className='top-greeting'>
+                        <p className='top-greeting pull-right'>
                             Hello, { firstName }!
                         </p>
+                        <i className="fa fa-plus pull-right add-icon" title='Add listing' aria-hidden="true"></i>
                     </div>
                     <div className='app-contents'>
                         { this.props.children }

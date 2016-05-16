@@ -176,6 +176,11 @@ body {
     font-weight: 500;
 }
 
+.app-top-menu .add-icon {
+    margin: 14px 20px 0 0;
+    cursor: pointer;
+}
+
 /* ---------------------------------------- */
 /* MODAL */
 /* ---------------------------------------- */
@@ -264,4 +269,13 @@ a:active {
 
 .menu-page-heading {
     margin: 5px;
+}
+
+.menu-page-heading:after {
+    display: block;
+    height: 2px;
+    background-color: #27ae60;
+    content: " ";
+    width: 100px;
+    margin: 30px auto 30px;
 }
