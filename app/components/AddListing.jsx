@@ -6,11 +6,11 @@ import { addListing } from '../actions/index';
 
 class AddListing extends Component {
     onSubmit(props) {
-        
+        console.log(props);
     }
 
     render() {
-        const { fields: { title, description, price, contact }, handleSubmit } = this.props;
+        const { fields: { listing_type, title, description, condition, price, contact }, handleSubmit } = this.props;
 
         return (
             <div>
@@ -20,7 +20,7 @@ class AddListing extends Component {
                             <div className={ `form-group` }>
                                 <label>Type</label>
                                 <br />
-                                <select>
+                                <select value='Misc' {...listing_type }>
                                     <option value='Misc'>Misc</option>
                                     <option value='Book'>Book</option>
                                     <option value='Phone'>Phone</option>
@@ -46,7 +46,7 @@ class AddListing extends Component {
                             <div className={ `form-group` }>
                                 <label>Condition</label>
                                 <br />
-                                <select>
+                                <select value='New' { ...condition }>
                                     <option value='New'>New</option>
                                     <option value='Used'>Used</option>
                                 </select>
