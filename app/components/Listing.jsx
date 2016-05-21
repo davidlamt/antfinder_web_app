@@ -37,12 +37,13 @@ class Listing extends Component {
                     </div>
                     <div className="panel-body">
                         <ul className="list-group">
-                            <li className="list-group-item">{ listing.listing_type }</li>
-                            <li className="list-group-item">{ listing.condition }</li>
-                            <li className="list-group-item">${ listing.price }</li>
-                            <li className="list-group-item">{ listing.contact }</li>
+                            <li className="list-group-item"><strong>Category: </strong>{ listing.listing_type }</li>
+                            <li className="list-group-item"><strong>Condition: </strong>{ listing.condition }</li>
+                            <li className="list-group-item"><strong>Price: </strong>${ listing.price }</li>
+                            <li className="list-group-item"><strong>Contact: </strong>{ listing.contact }</li>
                         </ul>
                     <div className='well'>
+                        <p><strong>Description</strong></p>
                         <p>{ listing.description }</p>
                     </div>
                     </div>

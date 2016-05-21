@@ -37,7 +37,7 @@ class SearchResults extends Component {
                 <tr key={ listing._id }>
                     <td><Link to={ `/app/listing/${ listing._id }` }>{ listing.title }</Link></td>
                     <td>{ listing.condition }</td>
-                    <td>{ listing.price }</td>
+                    <td>${ listing.price }</td>
                 </tr>
             );
         });
@@ -45,6 +45,13 @@ class SearchResults extends Component {
 
     render() {
         if (!this.props.listings) return <div></div>;
+        else if (this.props.listings === 'Not Found') {
+            return (
+                <div className='col-md-12 text-center'>
+                    <p>No listings could be found with that criteria. Please try again.</p>
+                </div>
+            );
+        }
 
         return (
             <div className='search-results col-md-12'>
