@@ -7,11 +7,13 @@ import { addListing } from '../actions/index';
 class AddListing extends Component {
     onSubmit(props) {
         console.log(props);
+        this.props.addListing(props).then(res => {
+            debugger;
+        });
     }
 
     render() {
         const { fields: { listing_type, title, description, condition, price, contact }, handleSubmit } = this.props;
-
 
         return (
             <div>
