@@ -12,21 +12,28 @@ class AddListing extends Component {
     render() {
         const { fields: { listing_type, title, description, condition, price, contact }, handleSubmit } = this.props;
 
+
         return (
             <div>
                 <h1 className='text-center menu-page-heading'>Add Listing</h1>
                     <div className='row'>
                         <form className='col-md-4' onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
-                            <div className={ `form-group` }>
+                            <div className={ `form-group ${ listing_type.touched && listing_type.invalid ? 'has-danger' : ''}` }>
                                 <label>Type</label>
                                 <br />
-                                <select value='Misc' {...listing_type }>
+                                <select {...listing_type }>
+                                    <option value=''></option>
                                     <option value='Misc'>Misc</option>
                                     <option value='Book'>Book</option>
                                     <option value='Phone'>Phone</option>
                                     <option value='Car'>Car</option>
                                 </select>
+                                <br />
+                                <div className='text-help'>
+                                    { listing_type.touched ? listing_type.error: '' }
+                                </div>
                             </div>
+                            <span className={ listing_type.touched && listing_type.invalid ? 'vertical-spacer' : '' } />
                             <div className={ `form-group ${ title.touched && title.invalid ? 'has-danger' : ''}` }>
                                 <label>Title</label>
                                 <input type='text' className='form-control' placeholder='LG G4' { ...title } />
@@ -43,14 +50,20 @@ class AddListing extends Component {
                                 </div>
                             </div>
                             <span className={ description.touched && description.invalid ? 'vertical-spacer' : '' } />
-                            <div className={ `form-group` }>
+                            <div className={ `form-group ${ condition.touched && condition.invalid ? 'has-danger' : ''}` }>
                                 <label>Condition</label>
                                 <br />
-                                <select value='New' { ...condition }>
+                                <select { ...condition }>
+                                    <option value=''></option>
                                     <option value='New'>New</option>
                                     <option value='Used'>Used</option>
                                 </select>
+                                <br />
+                                <div className='text-help'>
+                                    { condition.touched ? condition.error: '' }
+                                </div>
                             </div>
+                            <span className={ condition.touched && condition.invalid ? 'vertical-spacer' : '' } />
                             <div className={ `form-group ${ price.touched && price.invalid ? 'has-danger' : ''}` }>
                                 <label>Price</label>
                                 <input type='number' className='form-control' placeholder='200' { ...price }/>
@@ -82,6 +95,8 @@ const validate = values => {
     if (!values.description) errors.description = 'Enter a description';
     if (!values.price) errors.price = 'Enter a price';
     if (!values.contact) errors.contact = 'Enter a contact number'
+    if (!values.listing_type) errors.listing_type = 'Select a listing type';
+    if (!values.condition) errors.condition = 'Select a condition';
 
     return errors;
 };
