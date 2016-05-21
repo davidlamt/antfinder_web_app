@@ -31,7 +31,8 @@ class ModalComponent extends Component {
         this.props.deleteListing(listingID).then(() => {
             this.removeThisModal();
 
-            return context.push('/app/dashboard');
+            context.push('/app');
+            return context.push('/app/dashboard')
         });
     }
 
