@@ -35,7 +35,7 @@ class SearchResults extends Component {
         return listings.map(listing => {
             return (
                 <tr key={ listing._id }>
-                    <td><Link to='/app/dashboard'>{ listing.title }</Link></td>
+                    <td><Link to={ `/app/listing/${ listing._id }` }>{ listing.title }</Link></td>
                     <td>{ listing.condition }</td>
                     <td>{ listing.price }</td>
                 </tr>
