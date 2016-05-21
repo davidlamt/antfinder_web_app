@@ -192,17 +192,21 @@ body {
     margin: 10px 0;
 }
 
-.search-results a {
+.search-results a,
+.my-listings a {
     color: #27ae60;
     font-weight: 500;
 }
 
-.search-results a:visited {
+.search-results a:visited,
+.my-listings a:visited {
     color: #27ae60;
 }
 
 .search-results a:hover,
-.search-results a:active {
+.search-results a:active,
+.my-listings a:hover,
+.my-listings a:active {
     color: #1e8449;
     transition: color 0.5s;
 }

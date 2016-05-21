@@ -1,6 +1,6 @@
 import { SEARCH_LISTINGS, GET_CURRENT_USER_LISTINGS } from '../actions/index';
 
-const INITIAL_STATE = { data: null };
+const INITIAL_STATE = { data: null, myListings: null };
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {

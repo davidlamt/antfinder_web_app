@@ -55,7 +55,7 @@ class MyListings extends Component {
         if (!this.props.listings) return <div></div>;
 
         return(
-            <div className='col-md-12'>
+            <div className='my-listings col-md-12'>
                 { this.renderTable() }
             </div>
         );
