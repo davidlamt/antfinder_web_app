@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 import { addListing } from '../actions/index';
 
@@ -26,6 +27,14 @@ class AddListing extends Component {
 
         return (
             <div>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <ol className="breadcrumb">
+                            <li><Link to='app/dashboard'>Dashboard</Link></li>
+                            <li>Add Listing</li>
+                        </ol>
+                    </div>
+                </div>
                 <h1 className='text-center menu-page-heading'>Add Listing</h1>
                     <div className='row'>
                         <form className='col-md-4' onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>

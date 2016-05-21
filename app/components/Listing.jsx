@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 import { getListing } from '../actions/index';
 
@@ -20,19 +21,31 @@ class Listing extends Component {
 
         const { listing } = this.props;
 
-        console.log(listing);
-
         return (
-            <div className='panel panel-success listing-view'>
-                <div className="panel-heading">{ listing.title }</div>
-                <div className="panel-body">
-                    <ul className="list-group">
-                        <li className="list-group-item">{ listing.listing_type }</li>
-                        <li className="list-group-item">{ listing.condition }</li>
-                        <li className="list-group-item">${ listing.price }</li>
-                        <li className="list-group-item">{ listing.contact }</li>
-                    </ul>
-                <div className='well'>{ listing.description }</div>
+            <div>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <ol className="breadcrumb">
+                            <li><Link to='app/listings'>Listings</Link></li>
+                            <li>View Listing</li>
+                        </ol>
+                    </div>
+                </div>
+                <div className='panel panel-success listing-view'>
+                    <div className="panel-heading">
+                        <h3>{ listing.title }</h3>
+                    </div>
+                    <div className="panel-body">
+                        <ul className="list-group">
+                            <li className="list-group-item">{ listing.listing_type }</li>
+                            <li className="list-group-item">{ listing.condition }</li>
+                            <li className="list-group-item">${ listing.price }</li>
+                            <li className="list-group-item">{ listing.contact }</li>
+                        </ul>
+                    <div className='well'>
+                        <p>{ listing.description }</p>
+                    </div>
+                    </div>
                 </div>
             </div>
         );
