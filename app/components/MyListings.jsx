@@ -43,12 +43,16 @@ class MyListings extends Component {
             return (
                 <tr key={ listing._id }>
                     <td><Link to={ `/app/listing/${ listing._id }` }>{ listing.title }</Link></td>
-                    <td>{ listing.created_at }</td>
+                    <td>Created { this.determineAgeOfListing(listing.created_at) } days ago</td>
                     <td>{ listing.views }</td>
                     <td>Delete</td>
                 </tr>
             );
         });
+    }
+
+    determineAgeOfListing(createdAt) {
+        return moment().diff(moment(createdAt), 'days');
     }
 
     render() {
