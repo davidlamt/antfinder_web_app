@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import promise from 'redux-promise';
 
 import Account from 'Account';
+import AddListing from 'AddListing';
 import App from 'App';
 import Dashboard from 'Dashboard';
 import Login from 'Login';
@@ -33,6 +34,7 @@ ReactDOM.render(
                         <Route path='dashboard' component={ Dashboard } />
                         <Route path='listings' component={ Listings } />
                         <Route path='account' component={ Account } />
+                        <Route path='add_listing' component={ AddListing } />
                     </Route>
                 </Route>
             </Router>
