@@ -18,6 +18,7 @@ export const CHANGE_USER_PASSWORD = 'CHANGE_USER_PASSWORD';
 export const SEARCH_LISTINGS = 'SEARCH_LISTINGS';
 export const GET_LISTING = 'GET_LISTING';
 export const GET_CURRENT_USER_LISTINGS = 'GET_CURRENT_USER_LISTINGS';
+export const DELETE_LISTING = 'DELETE_LISTING';
 
 export const createUser = props => {
     const { firstName: first_name, lastName: last_name, email, username, password } = props;
@@ -111,6 +112,15 @@ export const getMyListings = () => {
 
     return {
         type: GET_CURRENT_USER_LISTINGS,
+        payload: request
+    };
+};
+
+export const deleteListing = listingID => {
+    const request = axios.delete(`${ ROOT_URL }/listings/${ listingID }`, config);
+
+    return {
+        type: DELETE_LISTING,
         payload: request
     };
 };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { logoutUser } from '../actions/index';
+import { logoutUser, deleteListing } from '../actions/index';
 
 class ModalComponent extends Component {
     constructor(props) {
@@ -26,7 +26,13 @@ class ModalComponent extends Component {
     }
 
     deleteListing(listingID) {
-        console.log(listingID);
+        const { context } = this.props;
+
+        this.props.deleteListing(listingID).then(() => {
+            this.removeThisModal();
+
+            return context.push('/app/dashboard');
+        });
     }
 
     determineLayout(modalType) {
@@ -60,4 +66,4 @@ class ModalComponent extends Component {
     }
 }
 
-export default connect(null, { logoutUser })(ModalComponent);
+export default connect(null, { logoutUser, deleteListing })(ModalComponent);

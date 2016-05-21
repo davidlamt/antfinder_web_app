@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { modal } from 'react-redux-modal';
@@ -7,6 +7,10 @@ import { getMyListings } from '../actions/index';
 import ModalComponent from 'ModalComponent';
 
 class MyListings extends Component {
+    static contextTypes = {
+        router: PropTypes.object
+    };
+
     componentWillMount() {
         this.props.getMyListings();
     }
@@ -76,6 +80,7 @@ class MyListings extends Component {
 
     render() {
         if (!this.props.listings) return <div></div>;
+        else if (this.props.listings === 'Not Found') return <div className='text-center'>You currently do not have any listings.</div>
 
         return(
             <div className='my-listings col-md-12'>
@@ -86,7 +91,7 @@ class MyListings extends Component {
 }
 
 const mapStateToProps = state => {
-    return { listings: state.listings.myListings }
+    return { listings: state.listings.myListings };
 };
 
 export default connect(mapStateToProps, { getMyListings })(MyListings);
