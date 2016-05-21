@@ -2,10 +2,10 @@
 The AntFinder web application. Uses the AntFinder API.
 
 ## Version
-**0.3**
+**1.0**
 
 ## Demo
-Working on building the application.
+<a href="https://antfinder.herokuapp.com/" target="_blank">https://antfinder.herokuapp.com/</a>
 
 ## Dependencies
 All dependencies are in the package.json file. Use the following command to install all of them:
