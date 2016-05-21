@@ -6,7 +6,7 @@ import { getListing } from '../actions/index';
 
 class Listing extends Component {
     componentWillMount() {
-        this.props.getListing(this.props.params.listingID).then();
+        this.props.getListing(this.props.params.listingID);
     }
 
     render() {
