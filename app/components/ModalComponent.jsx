@@ -25,12 +25,23 @@ class ModalComponent extends Component {
         });
     }
 
+    deleteListing(listingID) {
+        console.log(listingID);
+    }
+
     determineLayout(modalType) {
         switch (modalType) {
             case 'logout':
                 return (
                     <div>
                         <button onClick={ this.logout } className='btn btn-danger pull-left'>Log out</button>
+                        <button onClick={ this.removeThisModal } className='btn btn-default pull-right'>Cancel</button>
+                    </div>
+                );
+            case 'deleteListing':
+                return (
+                    <div>
+                        <button onClick={ () => this.deleteListing(this.props.listingID) } className='btn btn-danger pull-left'>Log out</button>
                         <button onClick={ this.removeThisModal } className='btn btn-default pull-right'>Cancel</button>
                     </div>
                 );

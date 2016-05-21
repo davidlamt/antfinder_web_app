@@ -1,12 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { modal } from 'react-redux-modal';
 
 import { getMyListings } from '../actions/index';
+import ModalComponent from 'ModalComponent';
 
 class MyListings extends Component {
     componentWillMount() {
         this.props.getMyListings();
+    }
+
+    addModal(event, listingID) {
+        event.preventDefault();
+
+        modal.add(ModalComponent, {
+            title: 'Are You Sure?',
+            size: 'medium',
+            closeOnOutsideClick: true,
+            modalType: 'deleteListing',
+            context: this.context.router,
+            listingID
+        });
+    }
+
+    determineAgeOfListing(createdAt) {
+        return moment().diff(moment(createdAt), 'days');
+    }
+
+    deleteListing(listingID, event) {
+        this.addModal(event, listingID);
     }
 
     renderTable() {
@@ -45,14 +68,10 @@ class MyListings extends Component {
                     <td><Link to={ `/app/listing/${ listing._id }` }>{ listing.title }</Link></td>
                     <td>Created { this.determineAgeOfListing(listing.created_at) } days ago</td>
                     <td>{ listing.views }</td>
-                    <td>Delete</td>
+                    <td><button className='btn btn-danger' onClick={ () => this.deleteListing(listing._id, event) }>Delete</button></td>
                 </tr>
             );
         });
-    }
-
-    determineAgeOfListing(createdAt) {
-        return moment().diff(moment(createdAt), 'days');
     }
 
     render() {
