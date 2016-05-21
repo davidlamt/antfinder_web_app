@@ -5,8 +5,8 @@ import SearchListings from 'SearchListings';
 class Listings extends Component {
     render() {
         return (
-            <div>
-                <h1>Listings Page</h1>
+            <div className='row'>
+                <h1 className='text-center menu-page-heading'>Listings</h1>
                 <SearchListings />
             </div>
         );

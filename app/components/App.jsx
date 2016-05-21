@@ -51,39 +51,39 @@ class App extends Component {
         return (
             <div className="container-fluid app-nav">
                 <div className="row">
-                <div className="col-sm-3 col-lg-2">
-                    <nav className="navbar navbar-inverse navbar-fixed-side">
-                        <div className='navbar-header'>
-                            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-page-menu" aria-expanded="false">
-                                <span className="sr-only">Toggle navigation</span>
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
-                            </button>
-                            <Link to='app/dashboard' className='navbar-brand'>AntFinder</Link>
-                        </div>
-                        <div className='collapse navbar-collapse' id='app-page-menu'>
-                            <ul className='nav navbar-nav'>
-                                <li><Link activeClassName='active' to='app/dashboard'>Dashboard</Link></li>
-                                <li><Link activeClassName='active' to='app/listings'>Listings</Link></li>
-                                <li><Link activeClassName='active' to='app/account'>Account</Link></li>
-                                <li><a onClick={ this.addModal }href='#'>Logout</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-                <div className="col-sm-9 col-lg-10 remove-padding">
-                    <div className='app-top-menu'>
-                        <p className='top-greeting pull-right'>
-                            Hello, { firstName }!
-                        </p>
-                        <Link to='app/add_listing' className="fa fa-plus pull-right add-icon" title='Add listing'></Link>
+                    <div className="col-sm-3 col-lg-2">
+                        <nav className="navbar navbar-inverse navbar-fixed-side">
+                            <div className='navbar-header'>
+                                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-page-menu" aria-expanded="false">
+                                    <span className="sr-only">Toggle navigation</span>
+                                    <span className="icon-bar"></span>
+                                    <span className="icon-bar"></span>
+                                    <span className="icon-bar"></span>
+                                </button>
+                                <Link to='app/dashboard' className='navbar-brand'>AntFinder</Link>
+                            </div>
+                            <div className='collapse navbar-collapse' id='app-page-menu'>
+                                <ul className='nav navbar-nav'>
+                                    <li><Link activeClassName='active' to='app/dashboard'>Dashboard</Link></li>
+                                    <li><Link activeClassName='active' to='app/listings'>Listings</Link></li>
+                                    <li><Link activeClassName='active' to='app/account'>Account</Link></li>
+                                    <li><a onClick={ this.addModal }href='#'>Logout</a></li>
+                                </ul>
+                            </div>
+                        </nav>
                     </div>
-                    <div className='app-contents'>
-                        { this.props.children }
+                    <div className="col-sm-9 col-lg-10 remove-padding">
+                        <div className='app-top-menu'>
+                            <p className='top-greeting pull-right'>
+                                Hello, { firstName }!
+                            </p>
+                            <Link to='app/add_listing' className="fa fa-plus pull-right add-icon" title='Add listing'></Link>
+                        </div>
+                        <div className='app-contents'>
+                            { this.props.children }
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
         );
     }
