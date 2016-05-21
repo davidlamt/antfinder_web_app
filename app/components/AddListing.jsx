@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 import { addListing } from '../actions/index';
 
@@ -26,20 +27,27 @@ class AddListing extends Component {
 
         return (
             <div>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <ol className="breadcrumb">
+                            <li><Link to='app/dashboard'>Dashboard</Link></li>
+                            <li>Add Listing</li>
+                        </ol>
+                    </div>
+                </div>
                 <h1 className='text-center menu-page-heading'>Add Listing</h1>
                     <div className='row'>
                         <form className='col-md-4' onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
                             <div className={ `form-group ${ listing_type.touched && listing_type.invalid ? 'has-danger' : ''}` }>
                                 <label>Type</label>
                                 <br />
-                                <select {...listing_type }>
+                                <select className='form-control' {...listing_type }>
                                     <option value=''></option>
                                     <option value='Misc'>Misc</option>
                                     <option value='Book'>Book</option>
                                     <option value='Phone'>Phone</option>
                                     <option value='Car'>Car</option>
                                 </select>
-                                <br />
                                 <div className='text-help'>
                                     { listing_type.touched ? listing_type.error: '' }
                                 </div>
@@ -64,12 +72,11 @@ class AddListing extends Component {
                             <div className={ `form-group ${ condition.touched && condition.invalid ? 'has-danger' : ''}` }>
                                 <label>Condition</label>
                                 <br />
-                                <select { ...condition }>
+                                <select className='form-control' { ...condition }>
                                     <option value=''></option>
                                     <option value='New'>New</option>
                                     <option value='Used'>Used</option>
                                 </select>
-                                <br />
                                 <div className='text-help'>
                                     { condition.touched ? condition.error: '' }
                                 </div>

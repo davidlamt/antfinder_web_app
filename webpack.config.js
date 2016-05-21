@@ -14,11 +14,15 @@ module.exports = {
             Footer: 'app/components/Footer.jsx',
             Landing: 'app/components/Landing.jsx',
             LandingNav: 'app/components/LandingNav.jsx',
+            Listing: 'app/components/Listing.jsx',
             Listings: 'app/components/Listings.jsx',
             Login: 'app/components/Login.jsx',
             Main: 'app/components/Main.jsx',
+            MyListings: 'app/components/MyListings.jsx',
             ModalComponent: 'app/components/ModalComponent.jsx',
-            Registration: 'app/components/Registration'
+            Registration: 'app/components/Registration.jsx',
+            SearchListings: 'app/components/SearchListings.jsx',
+            SearchResults: 'app/components/SearchResults.jsx'
         },
         extensions: ['', '.js', '.jsx']
     },
