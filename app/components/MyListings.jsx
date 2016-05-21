@@ -80,7 +80,14 @@ class MyListings extends Component {
 
     render() {
         if (!this.props.listings) return <div></div>;
-        else if (this.props.listings === 'Not Found') return <div className='text-center'>You currently do not have any listings.</div>
+        else if (this.props.listings === 'Not Found') {
+            return (
+                <div className='text-center'>
+                    <p>You currently do not have any listings.</p>
+                    <Link to='app/add_listing' className='btn btn-primary'>Add Listing</Link>
+                </div>
+            );
+        }
 
         return(
             <div className='my-listings col-md-12'>
