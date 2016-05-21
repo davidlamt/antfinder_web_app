@@ -21,8 +21,8 @@ class App extends Component {
         event.preventDefault();
 
         modal.add(ModalComponent, {
-            title: 'Log Out?',
-            size: 'small',
+            title: 'Are You Sure?',
+            size: 'medium',
             closeOnOutsideClick: true,
             modalType: 'logout',
             context: this.context.router
