@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class SearchResults extends Component {
     renderTable() {
@@ -29,6 +30,8 @@ class SearchResults extends Component {
     }
 
     render() {
+        if (!this.props.listings) return <div></div>;
+
         return (
             <div className='col-md-12'>
                 { this.renderTable() }
@@ -37,4 +40,8 @@ class SearchResults extends Component {
     }
 }
 
-export default SearchResults;
+const mapStateToProps = state => {
+    return { listings: state.listings.data }
+};
+
+export default connect(mapStateToProps, null)(SearchResults);

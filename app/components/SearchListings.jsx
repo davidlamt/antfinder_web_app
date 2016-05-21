@@ -6,9 +6,7 @@ import { searchListings } from '../actions/index';
 
 class SearchListings extends Component {
     onSubmit(props) {
-        this.props.searchListings().then(res => {
-            console.log(res);
-        });
+        this.props.searchListings().then();
     }
 
     render() {
