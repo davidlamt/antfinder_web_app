@@ -14,6 +14,7 @@ module.exports = {
             Footer: 'app/components/Footer.jsx',
             Landing: 'app/components/Landing.jsx',
             LandingNav: 'app/components/LandingNav.jsx',
+            Listing: 'app/components/Listing.jsx',
             Listings: 'app/components/Listings.jsx',
             Login: 'app/components/Login.jsx',
             Main: 'app/components/Main.jsx',

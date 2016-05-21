@@ -12,6 +12,7 @@ import Dashboard from 'Dashboard';
 import Login from 'Login';
 import Main from 'Main';
 import Landing from 'Landing';
+import Listing from 'Listing';
 import Listings from 'Listings';
 import ReduxModal from 'react-redux-modal';
 import Registration from 'Registration';
@@ -35,6 +36,7 @@ ReactDOM.render(
                         <Route path='listings' component={ Listings } />
                         <Route path='account' component={ Account } />
                         <Route path='add_listing' component={ AddListing } />
+                        <Route path='listing/:listingID' component={ Listing } />
                     </Route>
                 </Route>
             </Router>
