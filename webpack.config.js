@@ -18,7 +18,9 @@ module.exports = {
             Login: 'app/components/Login.jsx',
             Main: 'app/components/Main.jsx',
             ModalComponent: 'app/components/ModalComponent.jsx',
-            Registration: 'app/components/Registration'
+            Registration: 'app/components/Registration.jsx',
+            SearchListings: 'app/components/SearchListings.jsx',
+            SearchResults: 'app/components/SearchResults.jsx'
         },
         extensions: ['', '.js', '.jsx']
     },

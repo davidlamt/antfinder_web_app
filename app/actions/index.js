@@ -15,6 +15,7 @@ export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const AUTHENTICATE_USER = 'AUTHENTICATE_USER';
 export const CHANGE_USER_PASSWORD = 'CHANGE_USER_PASSWORD';
+export const SEARCH_LISTINGS = 'SEARCH_LISTINGS';
 
 export const createUser = props => {
     const { firstName: first_name, lastName: last_name, email, username, password } = props;
@@ -81,6 +82,15 @@ export const addListing = newListing => {
 
     return {
         type: ADD_LISTING,
+        payload: request
+    };
+};
+
+export const searchListings = () => {
+    const request = axios.get(`${ ROOT_URL }/listings`, config);
+
+    return {
+        type: SEARCH_LISTINGS,
         payload: request
     };
 };
