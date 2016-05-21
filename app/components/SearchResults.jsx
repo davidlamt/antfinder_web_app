@@ -20,13 +20,26 @@ class SearchResults extends Component {
     }
 
     renderResults() {
-        return (
-            <tr>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-            </tr>
+        if (this.props.listings.length === 0) return (
+            <div className='loading-spinner'>
+                <div className='text-center vertical-center'>
+                    <i className="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
+                    <span className="sr-only">Loading...</span>
+                </div>
+            </div>
         );
+
+        const { listings } = this.props;
+
+        return listings.map(listing => {
+            return (
+                <tr key={ listing._id }>
+                    <td>{ listing.title }</td>
+                    <td>{ listing.condition }</td>
+                    <td>{ listing.price }</td>
+                </tr>
+            );
+        });
     }
 
     render() {
