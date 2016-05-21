@@ -48,7 +48,7 @@ class SearchResults extends Component {
         else if (this.props.listings === 'Not Found') {
             return (
                 <div className='col-md-12 text-center'>
-                    <p>No listings could be found with that criteria. Please try again.</p>
+                    <p>No listings could be found with that criteria.</p>
                 </div>
             );
         }
