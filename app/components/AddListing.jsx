@@ -16,7 +16,6 @@ class AddListing extends Component {
     }
 
     onSubmit(props) {
-        console.log(props);
         this.props.addListing(props).then(res => {
             if (res.payload.status === 200) this.context.router.push('/app/dashboard');
         });
