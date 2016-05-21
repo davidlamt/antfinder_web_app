@@ -1,14 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 
 import { addListing } from '../actions/index';
 
 class AddListing extends Component {
+    static contextTypes = {
+        router: PropTypes.object
+    };
+
+    constructor(props) {
+        super(props);
+
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
     onSubmit(props) {
         console.log(props);
         this.props.addListing(props).then(res => {
-            debugger;
+            if (res.payload.status === 200) this.context.router.push('/app/dashboard');
         });
     }
 
