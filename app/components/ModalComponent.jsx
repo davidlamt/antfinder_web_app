@@ -41,7 +41,7 @@ class ModalComponent extends Component {
             case 'deleteListing':
                 return (
                     <div>
-                        <button onClick={ () => this.deleteListing(this.props.listingID) } className='btn btn-danger pull-left'>Log out</button>
+                        <button onClick={ () => this.deleteListing(this.props.listingID) } className='btn btn-danger pull-left'>Delete</button>
                         <button onClick={ this.removeThisModal } className='btn btn-default pull-right'>Cancel</button>
                     </div>
                 );

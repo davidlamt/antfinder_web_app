@@ -11,16 +11,16 @@ class MyListings extends Component {
         this.props.getMyListings();
     }
 
-    addModal(event, listingID) {
+    addModal(event, listing) {
         event.preventDefault();
 
         modal.add(ModalComponent, {
-            title: 'Are You Sure?',
-            size: 'medium',
+            title: `Delete ${ listing.title } listing?`,
+            size: 'large',
             closeOnOutsideClick: true,
             modalType: 'deleteListing',
             context: this.context.router,
-            listingID
+            listingID: listing._id
         });
     }
 
@@ -28,8 +28,8 @@ class MyListings extends Component {
         return moment().diff(moment(createdAt), 'days');
     }
 
-    deleteListing(listingID, event) {
-        this.addModal(event, listingID);
+    deleteListing(listing, event) {
+        this.addModal(event, listing);
     }
 
     renderTable() {
@@ -68,7 +68,7 @@ class MyListings extends Component {
                     <td><Link to={ `/app/listing/${ listing._id }` }>{ listing.title }</Link></td>
                     <td>Created { this.determineAgeOfListing(listing.created_at) } days ago</td>
                     <td>{ listing.views }</td>
-                    <td><button className='btn btn-danger' onClick={ () => this.deleteListing(listing._id, event) }>Delete</button></td>
+                    <td><button className='btn btn-danger' onClick={ () => this.deleteListing(listing, event) }>Delete</button></td>
                 </tr>
             );
         });
