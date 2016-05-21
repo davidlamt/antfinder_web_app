@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 class SearchResults extends Component {
     renderTable() {
@@ -34,7 +35,7 @@ class SearchResults extends Component {
         return listings.map(listing => {
             return (
                 <tr key={ listing._id }>
-                    <td>{ listing.title }</td>
+                    <td><Link to='/app/dashboard'>{ listing.title }</Link></td>
                     <td>{ listing.condition }</td>
                     <td>{ listing.price }</td>
                 </tr>
@@ -46,7 +47,7 @@ class SearchResults extends Component {
         if (!this.props.listings) return <div></div>;
 
         return (
-            <div className='col-md-12'>
+            <div className='search-results col-md-12'>
                 { this.renderTable() }
             </div>
         );
