@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { getListing } from '../actions/index';
 
 class Listing extends Component {
     componentWillMount() {
-        console.log(this.props.params.listingID);
+        this.props.getListing(this.props.params.listingID).then();
     }
 
     render() {
@@ -15,12 +18,29 @@ class Listing extends Component {
             </div>
         );
 
+        const { listing } = this.props;
+
+        console.log(listing);
+
         return (
-            <div>
-                Listing
+            <div className='panel panel-success listing-view'>
+                <div className="panel-heading">{ listing.title }</div>
+                <div className="panel-body">
+                    <ul className="list-group">
+                        <li className="list-group-item">{ listing.listing_type }</li>
+                        <li className="list-group-item">{ listing.condition }</li>
+                        <li className="list-group-item">${ listing.price }</li>
+                        <li className="list-group-item">{ listing.contact }</li>
+                    </ul>
+                <div className='well'>{ listing.description }</div>
+                </div>
             </div>
         );
     }
 }
 
-export default Listing;
+const mapStateToProps = state => {
+    return { listing: state.listing.data };
+};
+
+export default connect(mapStateToProps, { getListing })(Listing);
