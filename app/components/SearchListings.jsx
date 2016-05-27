@@ -21,16 +21,16 @@ class SearchListings extends Component {
                                 <select className='form-control' { ...listing_type }>
                                     <option value=''></option>
                                     <option value='All'>All</option>
-                                    {/*<option value='Misc'>Misc</option>
+                                    <option value='Misc'>Misc</option>
                                     <option value='Book'>Book</option>
                                     <option value='Phone'>Phone</option>
-                                    <option value='Car'>Car</option>*/}
+                                    <option value='Car'>Car</option>
                                 </select>
                             </div>
                         </div>
                         <div className='col-sm-8'>
                             <div className='form-group'>
-                                <input disabled type='text' className='form-control' placeholder='Awesome things' { ...search } />
+                                <input type='text' className='form-control' placeholder='Awesome things' { ...search } />
                             </div>
                         </div>
                         <div className='col-sm-2'>
