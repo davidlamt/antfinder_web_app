@@ -6,11 +6,12 @@ import { searchListings } from '../actions/index';
 
 class SearchListings extends Component {
     onSubmit(props) {
-        this.props.searchListings().then();
+        debugger;
+        this.props.searchListings(listing_type, query).then();
     }
 
     render() {
-        const { fields: { listing_type, search }, handleSubmit } = this.props;
+        const { fields: { listing_type, query }, handleSubmit } = this.props;
 
         return (
             <div className='search-listings col-md-8 col-md-offset-2'>
@@ -30,7 +31,7 @@ class SearchListings extends Component {
                         </div>
                         <div className='col-sm-8'>
                             <div className='form-group'>
-                                <input type='text' className='form-control' placeholder='Awesome things' { ...search } />
+                                <input type='text' className='form-control' placeholder='Awesome things' { ...query } />
                             </div>
                         </div>
                         <div className='col-sm-2'>
@@ -53,6 +54,6 @@ const validate = values => {
 
 export default reduxForm({
     form: 'SearchListingsForm',
-    fields: ['listing_type', 'search'],
+    fields: ['listing_type', 'query'],
     validate
 }, null, { searchListings })(SearchListings);
