@@ -6,8 +6,7 @@ import { searchListings } from '../actions/index';
 
 class SearchListings extends Component {
     onSubmit(props) {
-        debugger;
-        this.props.searchListings(listing_type, query).then();
+        this.props.searchListings(props.listing_type, props.query).then();
     }
 
     render() {
