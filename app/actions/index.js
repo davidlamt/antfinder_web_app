@@ -90,7 +90,7 @@ export const addListing = newListing => {
 };
 
 export const searchListings = (listing_type, query) => {
-    const request = axios.get(`${ ROOT_URL }/listings`, { listing_type, query }, config);
+    const request = axios.get(`${ ROOT_URL }/listings?listing_type=${ listing_type }&query=${ query }`, config);
 
     return {
         type: SEARCH_LISTINGS,
