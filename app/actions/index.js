@@ -89,8 +89,8 @@ export const addListing = newListing => {
     };
 };
 
-export const searchListings = () => {
-    const request = axios.get(`${ ROOT_URL }/listings`, config);
+export const searchListings = (listing_type, query) => {
+    const request = axios.get(`${ ROOT_URL }/listings`, { listing_type, query }, config);
 
     return {
         type: SEARCH_LISTINGS,
