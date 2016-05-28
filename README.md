@@ -2,7 +2,7 @@
 The AntFinder web application. Uses the AntFinder API.
 
 ## Version
-**1.0**
+**1.1**
 
 ## Demo
 <a href="https://antfinder.herokuapp.com/" target="_blank">https://antfinder.herokuapp.com/</a>
