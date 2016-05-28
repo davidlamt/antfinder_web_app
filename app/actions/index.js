@@ -19,6 +19,7 @@ export const SEARCH_LISTINGS = 'SEARCH_LISTINGS';
 export const GET_LISTING = 'GET_LISTING';
 export const GET_CURRENT_USER_LISTINGS = 'GET_CURRENT_USER_LISTINGS';
 export const DELETE_LISTING = 'DELETE_LISTING';
+export const CLEAR_APP_STATE = 'CLEAR_APP_STATE';
 
 export const createUser = props => {
     const { firstName: first_name, lastName: last_name, email, username, password } = props;
@@ -124,3 +125,10 @@ export const deleteListing = listingID => {
         payload: request
     };
 };
+
+export const clearAppStates = () => {
+    return {
+        type: CLEAR_APP_STATE,
+        payload: null
+    };
+}

@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import { getListing } from '../actions/index';
+import { getListing, clearAppStates } from '../actions/index';
 
 class Listing extends Component {
     componentWillMount() {
         this.props.getListing(this.props.params.listingID);
+    }
+
+    componentWillUnmount() {
+        this.props.clearAppStates();
     }
 
     render() {
@@ -57,4 +61,4 @@ const mapStateToProps = state => {
     return { listing: state.listing.data };
 };
 
-export default connect(mapStateToProps, { getListing })(Listing);
+export default connect(mapStateToProps, { getListing, clearAppStates })(Listing);
