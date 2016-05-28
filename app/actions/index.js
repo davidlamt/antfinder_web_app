@@ -19,6 +19,7 @@ export const SEARCH_LISTINGS = 'SEARCH_LISTINGS';
 export const GET_LISTING = 'GET_LISTING';
 export const GET_CURRENT_USER_LISTINGS = 'GET_CURRENT_USER_LISTINGS';
 export const DELETE_LISTING = 'DELETE_LISTING';
+export const CLEAR_APP_STATE = 'CLEAR_APP_STATE';
 
 export const createUser = props => {
     const { firstName: first_name, lastName: last_name, email, username, password } = props;
@@ -89,8 +90,8 @@ export const addListing = newListing => {
     };
 };
 
-export const searchListings = () => {
-    const request = axios.get(`${ ROOT_URL }/listings`, config);
+export const searchListings = (listing_type, query) => {
+    const request = axios.get(`${ ROOT_URL }/listings?listing_type=${ listing_type }&query=${ query }`, config);
 
     return {
         type: SEARCH_LISTINGS,
@@ -124,3 +125,10 @@ export const deleteListing = listingID => {
         payload: request
     };
 };
+
+export const clearAppStates = () => {
+    return {
+        type: CLEAR_APP_STATE,
+        payload: null
+    };
+}
